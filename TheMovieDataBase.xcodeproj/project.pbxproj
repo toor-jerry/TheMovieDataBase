@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D2C6079C29BEEE710018074C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C6079B29BEEE710018074C /* Assets.xcassets */; };
+		D2B8377229BEFAAD009CAF45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B8377129BEFAAC009CAF45 /* Assets.xcassets */; };
 		D2FF515529BEF24400FC45DD /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF515429BEF24400FC45DD /* NotificationName+Extension.swift */; };
 		D2FF516E29BEF25200FC45DD /* StarRatedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2FF515829BEF25200FC45DD /* StarRatedView.xib */; };
 		D2FF516F29BEF25200FC45DD /* StarRatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FF515929BEF25200FC45DD /* StarRatedView.swift */; };
@@ -105,7 +105,7 @@
 /* Begin PBXFileReference section */
 		D223B3E029BEE2BA002C9543 /* TheMovieDataBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDataBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D223B3F129BEE2BC002C9543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2C6079B29BEEE710018074C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Documents/baz-ios-project-c3-2023/BAZProject/Assets.xcassets"; sourceTree = "<group>"; };
+		D2B8377129BEFAAC009CAF45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D2FF515429BEF24400FC45DD /* NotificationName+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		D2FF515829BEF25200FC45DD /* StarRatedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarRatedView.xib; sourceTree = "<group>"; };
 		D2FF515929BEF25200FC45DD /* StarRatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatedView.swift; sourceTree = "<group>"; };
@@ -230,6 +230,7 @@
 		D223B3E229BEE2BA002C9543 /* TheMovieDataBase */ = {
 			isa = PBXGroup;
 			children = (
+				D2B8377129BEFAAC009CAF45 /* Assets.xcassets */,
 				D2FF51C529BEF27D00FC45DD /* Modules */,
 				D2FF51B529BEF27600FC45DD /* Base */,
 				D2FF519329BEF26D00FC45DD /* Util */,
@@ -238,7 +239,6 @@
 				D2FF515629BEF25200FC45DD /* Components */,
 				D2FF515229BEF24400FC45DD /* NotificationCenter */,
 				D223B3F129BEE2BC002C9543 /* Info.plist */,
-				D2C6079B29BEEE710018074C /* Assets.xcassets */,
 			);
 			path = TheMovieDataBase;
 			sourceTree = "<group>";
@@ -934,13 +934,13 @@
 				D2FF51C329BEF27600FC45DD /* Main.storyboard in Resources */,
 				D2FF524F29BEF27D00FC45DD /* TrendingView.xib in Resources */,
 				D2FF517329BEF25200FC45DD /* CellMovieTop.xib in Resources */,
+				D2B8377229BEFAAD009CAF45 /* Assets.xcassets in Resources */,
 				D2FF517A29BEF25200FC45DD /* CellReview.xib in Resources */,
 				D2FF524529BEF27D00FC45DD /* ReviewView.xib in Resources */,
 				D2FF523129BEF27D00FC45DD /* ErrorPageView.xib in Resources */,
 				D2FF522729BEF27D00FC45DD /* HomeView.xib in Resources */,
 				D2FF517029BEF25200FC45DD /* CellSlider.xib in Resources */,
 				D2FF523929BEF27D00FC45DD /* DetailView.xib in Resources */,
-				D2C6079C29BEEE710018074C /* Assets.xcassets in Resources */,
 				D2FF516E29BEF25200FC45DD /* StarRatedView.xib in Resources */,
 				D2FF517529BEF25200FC45DD /* ImageSlider.xib in Resources */,
 				D2FF517C29BEF25200FC45DD /* CellMovie.xib in Resources */,
