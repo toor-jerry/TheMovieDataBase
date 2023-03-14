@@ -88,9 +88,7 @@ final class DetailViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        backdropPathSlider.stopTimmer()
-        similarMoviesSlider.stopTimmer()
-        movieRecomendationsSlider.stopTimmer()
+        stopTimers()
         navigationController?.navigationBar.prefersLargeTitles = true
         stopLoading()
     }
@@ -118,6 +116,12 @@ final class DetailViewController: UIViewController {
     }
 
     // MARK: - Private methods
+    private func stopTimers() {
+        backdropPathSlider.stopTimmer()
+        similarMoviesSlider.stopTimmer()
+        movieRecomendationsSlider.stopTimmer()
+    }
+
     private func showLoader() {
         guaranteeMainThread {
             self.view.showLoader()
