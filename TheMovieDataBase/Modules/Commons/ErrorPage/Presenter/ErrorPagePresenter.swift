@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ErrorPagePresenter {
+final class ErrorPagePresenter: ErrorPagePresenterProtocol, ErrorPageInteractorOutputProtocol {
     // MARK: - Protocol properties
     var router: ErrorPageRouterProtocol?
     weak var view: ErrorPageViewProtocol?
@@ -17,7 +17,3 @@ class ErrorPagePresenter {
         router?.closeThisInstance()
     }
 }
-
-extension ErrorPagePresenter: ErrorPagePresenterProtocol { }
-
-extension ErrorPagePresenter: ErrorPageInteractorOutputProtocol { }

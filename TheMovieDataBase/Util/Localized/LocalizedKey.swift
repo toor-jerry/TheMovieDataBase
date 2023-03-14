@@ -13,7 +13,7 @@ extension String {
     static let commonMessageShowAlertLoading = "Por favor espere."
 
     // MARK: - TheMovieDb API
-    static let apiKeyTheMovieDb = ""
+    static let apiKeyTheMovieDb = "11cb2f010156ee8a3d0fb93624ceacea"
     static let theMovieDbBasePath = "https://api.themoviedb.org/3"
     static let theMovieDBBasePathImages = "https://image.tmdb.org/t/p"
     static let apiLang = "es"
