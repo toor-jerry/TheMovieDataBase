@@ -25,6 +25,7 @@ protocol HomePresenterProtocol: AnyObject {
     var view: HomeViewProtocol? { get set }
     var interactor: HomeInteractorInputProtocol? { get set }
 
+    func willFetchData()
     func willFetchMovieTopRated()
     func willFetchNowPlaying()
     func willFetchPopularMovies()

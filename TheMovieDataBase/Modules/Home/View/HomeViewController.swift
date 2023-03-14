@@ -104,10 +104,7 @@ final class HomeViewController: UIViewController {
     }
 
     private func getData() {
-        presenter?.willFetchMovieTopRated()
-        presenter?.willFetchNowPlaying()
-        presenter?.willFetchPopularMovies()
-        presenter?.willFetchUpcomingMovies()
+        presenter?.willFetchData()
     }
 
     private func addObservers() {

@@ -15,6 +15,13 @@ class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    func willFetchData() {
+        willFetchMovieTopRated()
+        willFetchNowPlaying()
+        willFetchPopularMovies()
+        willFetchUpcomingMovies()
+    }
+
     func willFetchMovieTopRated() {
         interactor?.fetchMovieTopRated()
     }
