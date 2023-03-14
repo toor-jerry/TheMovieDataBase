@@ -173,7 +173,7 @@ final class DetailViewController: UIViewController {
     private func reloadTableView() {
         reviewsTableView.reloadData { [weak self] in
             guard let self = self else { return }
-            self.heightReviewTableView.constant = self.heightCells.values.reduce(.zero, {$0 + $1})
+            self.heightReviewTableView.constant = self.heightCells.values.reduce(.zero, { $0 + $1 })
         }
     }
 
