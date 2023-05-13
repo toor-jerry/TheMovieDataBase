@@ -13,12 +13,6 @@ import UIKit
 /// * func setData
 ///
 final class CellMovieTop: UICollectionViewCell {
-    static let  identifier: String = .cellMovieTopXibIdentifier
-    /// This function allows to get the UINib of the cell.
-    /// Way to call CellMovieTop.nib()
-    static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
 
     // MARK: - Declaration IBOutlets
     @IBOutlet weak private var photoImageView: UIImageView!

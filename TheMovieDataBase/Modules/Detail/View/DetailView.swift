@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  DetailView.swift
 //  TheMovieDataBase
 //
 //  Created by Gerardo Bautista Castañeda on 14/02/23.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class DetailViewController: UIViewController {
-    static let identifier: String = .detailXibIdentifier
+final class DetailView: UIViewController {
     // MARK: - Protocol properties
     var presenter: DetailPresenterProtocol?
     var idMovie: String?
@@ -144,10 +143,10 @@ final class DetailViewController: UIViewController {
     }
 
     private func registerCell() {
-        reviewsTableView.register(CellReview.nib(),
-                                  forCellReuseIdentifier: CellReview.identifier)
-        reviewsTableView.register(CellEmptyState.nib(),
-                                  forCellReuseIdentifier: CellEmptyState.identifier)
+        reviewsTableView.register(CellReview.getUINib(),
+                                  forCellReuseIdentifier: CellReview.getIdentifier())
+        reviewsTableView.register(CellEmptyState.getUINib(),
+                                  forCellReuseIdentifier: CellEmptyState.getIdentifier())
     }
 
     private func showImageSlider() {
@@ -189,7 +188,7 @@ final class DetailViewController: UIViewController {
         self.reviews = data
     }
     private func getCellEmptyState(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CellEmptyState.identifier) as? CellEmptyState {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CellEmptyState.getIdentifier()) as? CellEmptyState {
             cell.setData(message: .detailReviewsEmptyState)
             return cell
         }
@@ -197,7 +196,7 @@ final class DetailViewController: UIViewController {
     }
 
     private func getCellReview(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CellReview.identifier) as? CellReview,
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CellReview.getIdentifier()) as? CellReview,
            let review = getReview(indexPath.row) {
             cell.backgroundColor = LocalizedConstants.commonPrimaryColor
             let review: ReviewType = ReviewType(title: "\(String.cellReviewWriteBy) \(review.author ?? "")",
@@ -214,7 +213,7 @@ final class DetailViewController: UIViewController {
     }
 }
 
-extension DetailViewController: DetailViewProtocol {
+extension DetailView: DetailViewProtocol {
     func updateView(data: [RecomendationMovieModelResult]) {
         if data.isEmpty {
             guaranteeMainThread {
@@ -287,7 +286,7 @@ extension DetailViewController: DetailViewProtocol {
     }
 }
 
-extension DetailViewController: ImageSliderDelegate {
+extension DetailView: ImageSliderDelegate {
     func indexDidSelect(_ index: Int, object: ImageSlider) {
         var idMovie: Int = .zero
         if object.isEqual(similarMoviesSlider),

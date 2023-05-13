@@ -15,14 +15,7 @@ import UIKit
 /// * func setData(message: String)
 /// * func nib()
 
-class CellEmptyState: UITableViewCell {
-    static let  identifier: String = .cellEmptyStateXibIdentifier
-
-     /// This function allows to get the UINib of the cell.
-     /// Way to call CellEmptyState.nib()
-    static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
+final class CellEmptyState: UITableViewCell {
 
     @IBOutlet private var messageLabel: UILabel!
 

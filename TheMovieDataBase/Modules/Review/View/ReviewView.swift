@@ -1,4 +1,4 @@
-//  ReviewViewController.swift
+//  ReviewView.swift
 //  TheMovieDataBase
 //
 //  Created by Gerardo Bautista Castañeda on 24/02/23.
@@ -7,11 +7,7 @@
 
 import UIKit
 
-final class ReviewViewController: UIViewController {
-    static let identifier: String = .reviewXibIdentifier
-    static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
+final class ReviewView: UIViewController {
 
     // MARK: - Declaration IBOutlets
     @IBOutlet weak var reviewsTableView: UITableView!
@@ -74,8 +70,8 @@ final class ReviewViewController: UIViewController {
     }
 
     private func registerCell() {
-        reviewsTableView.register(CellReview.nib(),
-                                 forCellReuseIdentifier: CellReview.identifier)
+        reviewsTableView.register(CellReview.getUINib(),
+                                 forCellReuseIdentifier: CellReview.getIdentifier())
     }
 
     private func showLoader() {
@@ -83,7 +79,6 @@ final class ReviewViewController: UIViewController {
             self.view.showLoader()
         }
     }
-    // private func setupView() {}
 
     private func callService() {
         isLoading = true
@@ -96,7 +91,7 @@ final class ReviewViewController: UIViewController {
     }
 }
 
-extension ReviewViewController: ReviewViewProtocol {
+extension ReviewView: ReviewViewProtocol {
     func updateView(data: [ReviewResult]) {
          reviews = data
         guaranteeMainThread {

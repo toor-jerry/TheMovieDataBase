@@ -1,12 +1,12 @@
 //
-//  TrendingViewController+HeaderBarViewControllerDelegate.swift
+//  TrendingView+HeaderBarViewControllerDelegate.swift
 //  TheMovieDataBase
 //
 //
 
 import UIKit
 
-final class TrendingViewController: UIViewController, TrendingViewProtocol {
+final class TrendingView: UIViewController, TrendingViewProtocol {
     @IBOutlet weak private var titleFilterLabel: UILabel! {
         didSet {
             titleFilterLabel.text = .trendingTitleFilterTime
@@ -14,8 +14,6 @@ final class TrendingViewController: UIViewController, TrendingViewProtocol {
     }
     @IBOutlet weak private var filterTimeSegmentedControl: UISegmentedControl!
     @IBOutlet weak private var moviesTableView: UITableView!
-//
-    static let identifier: String = .trendingXibIdentifier
 
     // MARK: - Protocol properties
     var presenter: TrendingPresenterProtocol?
@@ -161,8 +159,8 @@ final class TrendingViewController: UIViewController, TrendingViewProtocol {
     }
 
     private func registerCell() {
-        moviesTableView.register(CellMovie.nib(),
-                                 forCellReuseIdentifier: CellMovie.identifier)
+        moviesTableView.register(CellMovie.getUINib(),
+                                 forCellReuseIdentifier: CellMovie.getIdentifier())
     }
 
     private func setupRefreshControl() {
@@ -199,7 +197,7 @@ final class TrendingViewController: UIViewController, TrendingViewProtocol {
 }
 
 // MARK: - UIScrollViewDelegate
-extension TrendingViewController: UIScrollViewDelegate {
+extension TrendingView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollOffsetThreshold = getMoviesTableViewContentSizeHeight() - moviesTableView.bounds.size.height
         // When the user has scrolled past the threshold, start requesting
@@ -221,7 +219,7 @@ extension TrendingViewController: UIScrollViewDelegate {
     }
 }
 
-extension TrendingViewController: UISearchResultsUpdating {
+extension TrendingView: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let textSearching = searchController.searchBar.text else { return }
         if !textSearching.isEmpty && textSearching != self.textSearching {

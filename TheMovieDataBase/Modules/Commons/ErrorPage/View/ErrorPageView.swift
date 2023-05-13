@@ -1,5 +1,5 @@
 //
-//  ErrorPageViewController.swift
+//  ErrorPageView.swift
 //  TheMovieDataBase
 //
 //  Created by Gerardo Bautista Castañeda on 24/01/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ErrorPageViewController: UIViewController, ErrorPageViewProtocol {
+final class ErrorPageView: UIViewController, ErrorPageViewProtocol {
 
     @IBOutlet weak private var imgErrorLogo: UIImageView! {
         didSet {
@@ -32,7 +32,6 @@ final class ErrorPageViewController: UIViewController, ErrorPageViewProtocol {
     @IBOutlet weak private var titleErrorLabel: UILabel!
     @IBOutlet weak private var descriptionErrorLabel: UILabel!
 
-    static let identifier: String = .errorPageXibIdentifier
     var presenter: ErrorPagePresenterProtocol?
     var errorType: ErrorType?
 

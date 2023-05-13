@@ -1,4 +1,4 @@
-//  Detail+UITableExtension.swift
+//  DetailView+UITableExtension.swift
 //  TheMovieDataBase
 //
 //  Created by Gerardo Bautista Castañeda on 27/02/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension DetailViewController: UITableViewDelegate {
+extension DetailView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -17,7 +17,7 @@ extension DetailViewController: UITableViewDelegate {
     }
 }
 
-extension DetailViewController: UITableViewDataSource {
+extension DetailView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataIsEmpty() ? 1 : getReviewsCount()
     }

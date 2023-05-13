@@ -82,6 +82,15 @@ extension UIView {
         self.layer.add(scaleAnimation, forKey: nil)
     }
 
+    static func getIdentifier() -> String {
+        return String(describing: self)
+    }
+
+    /// This function allows to get the UINib of the cell.
+    static func getUINib() -> UINib {
+        UINib(nibName: String(describing: self), bundle: Bundle(for: self))
+    }
+
     // MARK: - Private methods
     private func addGradientLayer(startPoint: CGPoint = LocalizedConstants.commonLayerStartPoint,
                                   endPoint: CGPoint = LocalizedConstants.commonLayerEndPoint) -> CAGradientLayer {

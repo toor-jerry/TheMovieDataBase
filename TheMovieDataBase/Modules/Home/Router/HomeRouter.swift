@@ -13,7 +13,8 @@ final class HomeRouter {
 
     // MARK: Static methods
     static func createModule() -> UIViewController {
-        let view: HomeViewProtocol = HomeViewController(nibName: HomeViewController.identifier, bundle: nil)
+        let identifier: String = String(describing: HomeView.self)
+        let view: HomeViewProtocol = HomeView(nibName: identifier, bundle: nil)
         let service: NetworkingProviderProtocol = NetworkingProviderService(session: URLSession.shared)
         let dataManager: HomeDataManagerInputProtocol = HomeDataManager(providerNetworking: service)
         let interactor: HomeInteractorInputProtocol & HomeDataManagerOutputProtocol = HomeInteractor()

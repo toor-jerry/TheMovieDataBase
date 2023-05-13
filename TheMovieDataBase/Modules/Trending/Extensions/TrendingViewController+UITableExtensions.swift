@@ -1,5 +1,5 @@
 //
-//  TrendingViewController+UITableExtensions.swift
+//  TrendingView+UITableExtensions.swift
 //  TheMovieDataBase
 //
 //  Created by Gerardo Bautista Castañeda on 26/01/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension TrendingViewController: UITableViewDelegate {
+extension TrendingView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -31,13 +31,13 @@ extension TrendingViewController: UITableViewDelegate {
     }
 }
 
-extension TrendingViewController: UITableViewDataSource {
+extension TrendingView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getDataCount()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CellMovie.identifier) as? CellMovie,
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CellMovie.getIdentifier()) as? CellMovie,
            let movie = getData(indexPath.row) {
             cell.backgroundColor = LocalizedConstants.commonPrimaryColor
             cell.addAccessoryView(accesory: .eye)

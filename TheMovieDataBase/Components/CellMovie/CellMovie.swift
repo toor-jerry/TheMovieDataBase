@@ -11,11 +11,7 @@ enum AccesoryType {
     case eye, eyeFill
 }
 
-class CellMovie: UITableViewCell {
-    static let  identifier: String = .cellMovieXibIdentifier
-    static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
+final class CellMovie: UITableViewCell {
 
     @IBOutlet weak private var photoImageView: UIImageView! {
         didSet {

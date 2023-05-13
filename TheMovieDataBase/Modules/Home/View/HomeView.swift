@@ -1,4 +1,4 @@
-//  HomeViewController.swift
+//  HomeView.swift
 //  TheMovieDataBase
 //
 //  Created by Gerardo Bautista Castañeda on 19/02/23.
@@ -7,11 +7,7 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
-    static let identifier: String = .homeXibIdentifier
-    static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
+final class HomeView: UIViewController {
 
     // MARK: - Declaration IBOutlets
     @IBOutlet weak private var movieTopSlider: ImageSlider!
@@ -119,7 +115,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: HomeViewProtocol {
+extension HomeView: HomeViewProtocol {
     func updateView(data: [UpcomingModelResult]) {
         upcomingMovies = data
         var posterUrlString: [String] = []
@@ -185,7 +181,7 @@ extension HomeViewController: HomeViewProtocol {
     }
 }
 
-extension HomeViewController: ImageSliderDelegate {
+extension HomeView: ImageSliderDelegate {
     func indexDidSelect(_ index: Int, object: ImageSlider) {
         var idMovie: Int = .zero
         if object.isEqual(movieTopSlider),

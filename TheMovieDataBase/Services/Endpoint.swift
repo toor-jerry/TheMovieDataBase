@@ -15,11 +15,11 @@ enum BaseUrl {
     var url: String {
         switch self {
         case .images(sizeImage: let size):
-            return "\(String.theMovieDBBasePathImages)/\(size.rawValue)"
+            return "\(LocalizedConstants.theMovieDBBasePathImages)/\(size.rawValue)"
         case .api:
-            return .theMovieDbBasePath
+            return LocalizedConstants.theMovieDbBasePath
         case .apiWithEndPoint(endPoint: let url):
-            return "\(String.theMovieDbBasePath)\(url)\(String.theMovieDbEndBaseUrl)"
+            return "\(LocalizedConstants.theMovieDbBasePath)\(url)\(LocalizedConstants.theMovieDbEndBaseUrl)"
         }
     }
 }
@@ -46,33 +46,33 @@ extension Endpoint {
         case .img(idImage: let id, sizeImage: let size):
             return "\(BaseUrl.images(sizeImage: size).url)/\(id)"
         case .trending(mediaType: let media, timeWindow: let time, page: let page):
-            let url: String = "\(String.apiKeyEndPointTrending)/\(media.rawValue)/\(time.rawValue)"
+            let url: String = "\(LocalizedConstants.apiKeyEndPointTrending)/\(media.rawValue)/\(time.rawValue)"
             return "\(BaseUrl.apiWithEndPoint(endPoint: url).url)&page=\(page)"
         case .detail(idMovie: let movie):
-            return "\(BaseUrl.api.url)/movie/\(movie)\(String.theMovieDbEndBaseUrl)\(String.theMovieDbAppendImages)"
+            return "\(BaseUrl.api.url)/movie/\(movie)\(LocalizedConstants.theMovieDbEndBaseUrl)\(LocalizedConstants.theMovieDbAppendImages)"
         case .topRated:
-            return BaseUrl.apiWithEndPoint(endPoint: .apiKeyEndPointMovieTopRated).url
+            return BaseUrl.apiWithEndPoint(endPoint: LocalizedConstants.apiKeyEndPointMovieTopRated).url
         case .reviews(idMovie: let movie):
-            let reviewsUrlString: String = "\(String.apiKeyEndPointMovie)/\(movie)/reviews"
+            let reviewsUrlString: String = "\(LocalizedConstants.apiKeyEndPointMovie)/\(movie)/reviews"
             return BaseUrl.apiWithEndPoint(endPoint: reviewsUrlString).url
         case .searchMovie(byKeywork: let keyWord):
-            let searchMovieUrlString: String = "\(String.apiKeyEndPointMovieSearch)"
+            let searchMovieUrlString: String = LocalizedConstants.apiKeyEndPointMovieSearch
             return "\(BaseUrl.apiWithEndPoint(endPoint: searchMovieUrlString).url)&query=\(keyWord)"
         case .nowPlaying:
-            return BaseUrl.apiWithEndPoint(endPoint: .apiKeyEndPointNowPlaying).url
+            return BaseUrl.apiWithEndPoint(endPoint: LocalizedConstants.apiKeyEndPointNowPlaying).url
         case .similarMovie(idMovie: let movie):
-            let similarUrlString: String = "\(String.apiKeyEndPointMovie)/\(movie)/similar"
+            let similarUrlString: String = "\(LocalizedConstants.apiKeyEndPointMovie)/\(movie)/similar"
             return "\(BaseUrl.apiWithEndPoint(endPoint: similarUrlString).url)"
         case .poularMovies:
-            return BaseUrl.apiWithEndPoint(endPoint: .apiKeyEndPointPopularMovies).url
+            return BaseUrl.apiWithEndPoint(endPoint: LocalizedConstants.apiKeyEndPointPopularMovies).url
         case .upcoming:
-            return BaseUrl.apiWithEndPoint(endPoint: .apiKeyEndPointUpcomingMovies).url
+            return BaseUrl.apiWithEndPoint(endPoint: LocalizedConstants.apiKeyEndPointUpcomingMovies).url
         case .recomendations(idMovie: let idMovie):
-            let endPointMovie: String = String.apiKeyEndPointMovie
-            let recomendationsUrlString: String = "\(endPointMovie)/\(idMovie)/\(String.apiKeyEndPointRecomendations)"
+            let endPointMovie: String = LocalizedConstants.apiKeyEndPointMovie
+            let recomendationsUrlString: String = "\(endPointMovie)/\(idMovie)/\(LocalizedConstants.apiKeyEndPointRecomendations)"
             return "\(BaseUrl.apiWithEndPoint(endPoint: recomendationsUrlString).url)"
         case .nextTrendingMovie(mediaType: let mediaType, timeWindow: let timeWindow, page: let page):
-            let url: String = "\(String.apiKeyEndPointTrending)/\(mediaType.rawValue)/\(timeWindow.rawValue)"
+            let url: String = "\(LocalizedConstants.apiKeyEndPointTrending)/\(mediaType.rawValue)/\(timeWindow.rawValue)"
             return "\(BaseUrl.apiWithEndPoint(endPoint: url).url)&page=\(page)"
         }
     }

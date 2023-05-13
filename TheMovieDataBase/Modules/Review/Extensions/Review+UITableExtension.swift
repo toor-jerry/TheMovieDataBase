@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ReviewViewController: UITableViewDelegate {
+extension ReviewView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -23,13 +23,13 @@ extension ReviewViewController: UITableViewDelegate {
     }
 }
 
-extension ReviewViewController: UITableViewDataSource {
+extension ReviewView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getDataCount()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: CellReview.identifier) as? CellReview,
+        if let cell = tableView.dequeueReusableCell(withIdentifier: CellReview.getIdentifier()) as? CellReview,
            let review = getReview(indexPath.row) {
             cell.backgroundColor = LocalizedConstants.commonPrimaryColor
             let review: ReviewType = ReviewType(title: "\(String.cellReviewWriteBy) \(review.author ?? "")",
@@ -46,7 +46,7 @@ extension ReviewViewController: UITableViewDataSource {
 }
 
 // MARK: - CellReviewDelegate
-extension ReviewViewController: CellReviewDelegate {
+extension ReviewView: CellReviewDelegate {
     func showMore() {
         reviewsTableView.reloadData()
     }

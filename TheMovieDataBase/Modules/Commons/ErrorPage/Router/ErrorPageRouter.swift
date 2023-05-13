@@ -11,8 +11,9 @@ final class ErrorPageRouter: ErrorPageRouterProtocol {
     weak var view: ErrorPageViewProtocol?
 
     static func createModule(errorType: ErrorType) -> UIViewController {
-        let view: ErrorPageViewProtocol = ErrorPageViewController(
-            nibName: ErrorPageViewController.identifier,
+        let identifier: String = String(describing: ErrorPageView.self)
+        let view: ErrorPageViewProtocol = ErrorPageView(
+            nibName: identifier,
             bundle: nil)
 
         let interactor: ErrorPageInteractorInputProtocol = ErrorPageInteractor()

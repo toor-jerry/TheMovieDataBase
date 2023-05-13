@@ -12,7 +12,8 @@ final class TrendingRouter: TrendingRouterProtocol {
     private var alert: UIAlertController?
 
     static func createModule() -> UIViewController {
-        let view: TrendingViewProtocol = TrendingViewController(nibName: TrendingViewController.identifier, bundle: nil)
+        let identifier: String = String(describing: TrendingView.self)
+        let view: TrendingViewProtocol = TrendingView(nibName: identifier, bundle: nil)
         let service: NetworkingProviderProtocol = NetworkingProviderService(session: URLSession.shared)
         let dataManager: TrendingDataManagerInputProtocol = TrendingDataManager(providerNetworking: service)
         let interactor: TrendingInteractorInputProtocol & TrendingDataManagerOutputProtocol = TrendingInteractor()

@@ -13,7 +13,8 @@ final class ReviewRouter {
 
     // MARK: Static methods
     static func createModule(idMovie: String) -> UIViewController {
-        let view: ReviewViewProtocol = ReviewViewController(nibName: ReviewViewController.identifier, bundle: nil)
+        let identifier: String = String(describing: ReviewView.self)
+        let view: ReviewViewProtocol = ReviewView(nibName: identifier, bundle: nil)
         let service: NetworkingProviderProtocol = NetworkingProviderService(session: URLSession.shared)
         let dataManager: ReviewDataManagerInputProtocol = ReviewDataManager(providerNetworking: service)
         let interactor: ReviewInteractorInputProtocol & ReviewDataManagerOutputProtocol = ReviewInteractor()

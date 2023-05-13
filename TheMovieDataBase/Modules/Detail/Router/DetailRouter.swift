@@ -11,8 +11,9 @@ final class DetailRouter: DetailRouterProtocol {
     weak var view: DetailViewProtocol?
 
     static func createModule(of idMovie: String) -> UIViewController {
-        let view: DetailViewProtocol = DetailViewController(
-            nibName: DetailViewController.identifier,
+        let identifier: String = String(describing: DetailView.self)
+        let view: DetailViewProtocol = DetailView(
+            nibName: identifier,
             bundle: nil)
         let service: NetworkingProviderProtocol = NetworkingProviderService(session: URLSession.shared)
         let dataManager: DetailDataManagerInputProtocol = DetailDataManager(providerNetworking: service)

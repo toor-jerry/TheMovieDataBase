@@ -13,15 +13,8 @@ import UIKit
 /// * func setData
 ///
 final class StarRatedView: CustomView {
-    static let identifier: String = .starRatedXibIdentifier
 
-    /// This function allows to get the UINib of the cell.
-    /// Way to call StarRatedView.nib()
-    static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
-
-    override var nameXIB: String { .starRatedXibIdentifier }
+    override var nameXIB: String { String(describing: StarRatedView.self) }
 
     // MARK: - Declaration IBOutlets
     @IBOutlet weak private var starsStackContainer: UIStackView!

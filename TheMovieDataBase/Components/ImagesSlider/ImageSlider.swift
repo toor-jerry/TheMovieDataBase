@@ -17,11 +17,7 @@ protocol ImageSliderDelegate: AnyObject {
 
 final class ImageSlider: CustomView {
 
-    static let  identifier: String = .imageSliderXibIdentifier
-    override var nameXIB: String {ImageSlider.identifier }
-    static func nib() -> UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
+    override var nameXIB: String { String(describing: ImageSlider.self) }
 
     weak var delegate: ImageSliderDelegate?
 
@@ -100,13 +96,13 @@ final class ImageSlider: CustomView {
     }
 
     private func registerCellSlider() {
-        imageCollection.register(CellSlider.nib(),
-                                 forCellWithReuseIdentifier: CellSlider.identifier)
+        imageCollection.register(CellSlider.getUINib(),
+                                 forCellWithReuseIdentifier: CellSlider.getIdentifier())
     }
 
     private func registerCellMovieTop() {
-        imageCollection.register(CellMovieTop.nib(),
-                                 forCellWithReuseIdentifier: CellMovieTop.identifier)
+        imageCollection.register(CellMovieTop.getUINib(),
+                                 forCellWithReuseIdentifier: CellMovieTop.getIdentifier())
     }
 
     private func setupPageControl() {
@@ -179,9 +175,9 @@ final class ImageSlider: CustomView {
     }
 
     private func getCellSlider(of indexPath: IndexPath, in collectionView: UICollectionView) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellSlider.identifier,
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellSlider.getIdentifier(),
                                                          for: indexPath) as? CellSlider,
-            let imageUrl: String = getImageUrl(indexPath.row) {
+           let imageUrl: String = getImageUrl(indexPath.row) {
             let imageUrlString: String = Endpoint.img(idImage: imageUrl,
                                                       sizeImage: .w500).urlString
             cell.setData(imageUrl: imageUrlString, imageContentMode: imageContentMode)
@@ -191,9 +187,9 @@ final class ImageSlider: CustomView {
     }
 
     private func getCellMovieTop(of indexPath: IndexPath, in collectionView: UICollectionView) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellMovieTop.identifier,
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellMovieTop.getIdentifier(),
                                                          for: indexPath) as? CellMovieTop,
-            let cellMovieType: CellMovieType = getCellMovieTop(indexPath.row) {
+           let cellMovieType: CellMovieType = getCellMovieTop(indexPath.row) {
             cell.setData(cellMovieType: cellMovieType)
             return cell
         }
