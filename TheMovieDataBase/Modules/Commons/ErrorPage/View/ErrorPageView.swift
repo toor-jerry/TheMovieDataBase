@@ -11,7 +11,7 @@ final class ErrorPageView: UIViewController, ErrorPageViewProtocol {
 
     @IBOutlet weak private var imgErrorLogo: UIImageView! {
         didSet {
-            if let icon = UIImage(named: .nameIcon404) {
+            if let icon = UIImage(named: LocalizedConstants.nameIcon404) {
                 imgErrorLogo.image = icon
             }
         }

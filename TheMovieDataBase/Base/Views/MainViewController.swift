@@ -42,11 +42,11 @@ final class MainViewController: UITabBarController {
 
         arrControllers.append(createNavController(for: HomeRouter.createModule(),
                                                   title: .homeTitle,
-                                                  image: getUIImage(for: .homeNameIconTabBar, type: .systemName)))
+                                                  image: getUIImage(for: LocalizedConstants.homeNameIconTabBar, type: .systemName)))
 
         arrControllers.append(createNavController(for: TrendingRouter.createModule(),
                                                   title: .trendingTitle,
-                                                  image: getUIImage(for: .trendingNameIconTabBar, type: .systemName)))
+                                                  image: getUIImage(for: LocalizedConstants.trendingNameIconTabBar, type: .systemName)))
 
         viewControllers = arrControllers
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white],

@@ -13,13 +13,11 @@ extension String {
     static let commonMessageShowAlertLoading = "Por favor espere."
 
     // MARK: - ErrorPageView
-    static let nameIcon404 = "notFound"
     static let errorPagePrincipalTitleLabel = " Ups!, ha ocurrido un error..."
     static let retryTitleButton = "Reintentar"
 
     // MARK: - Home
     static let homeTitle = "Inicio"
-    static let homeNameIconTabBar = "house"
     static let homeTitleNowPlaying = "En cines:"
     static let homeTitlePopularMovies = "Populares:"
     static let homeTitleUpcoming = "Próximos estrenos:"
@@ -30,7 +28,6 @@ extension String {
     static let trendingTitleUpdateTable = "Actualizando.."
     static let trendingTitleFilterTime = "Filtrar por:"
     static let trendingFilterByTimeTitles = ["📆Día", "🗓Semana"]
-    static let trendingNameIconTabBar = "magnifyingglass"
 
     // MARK: - Review
     static let reviewTitleTable = "Reseñas"

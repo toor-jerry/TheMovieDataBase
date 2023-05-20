@@ -103,6 +103,15 @@ enum LocalizedConstants {
     // MARK: - DetailView
     static let detailViewMinimumNumberToShowButton: Int = 2
 
+    // MARK: - ErrorPageView
+    static let nameIcon404 = "notFound"
+
+    // MARK: - Home
+    static let homeNameIconTabBar = "house"
+
+    // MARK: - Trending
+    static let trendingNameIconTabBar = "magnifyingglass"
+
     // MARK: - TheMovieDb API
     static let apiKeyTheMovieDb: String = "11cb2f010156ee8a3d0fb93624ceacea"
     static let theMovieDbBasePath: String = "https://api.themoviedb.org/3"
