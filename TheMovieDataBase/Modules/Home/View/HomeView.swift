@@ -110,6 +110,55 @@ final class HomeView: UIViewController {
                                                object: nil)
     }
 
+    private func getPosterPathList(_ data: [UpcomingModelResult]) -> [String] {
+        var posterUrlString: [String] = []
+
+        data.forEach { movie in
+            if let poster = movie.posterPath {
+                posterUrlString.append(poster)
+            }
+        }
+
+        return posterUrlString
+    }
+
+    private func getPosterPathList(_ data: [PopularMoviesModelResult]) -> [String] {
+        var posterUrlString: [String] = []
+
+        data.forEach { movie in
+            if let poster = movie.posterPath {
+                posterUrlString.append(poster)
+            }
+        }
+
+        return posterUrlString
+    }
+
+    private func getPosterPathList(_ data: [NowPlayingResult]) -> [String] {
+        var posterUrlString: [String] = []
+
+        data.forEach { movie in
+            if let poster = movie.posterPath {
+                posterUrlString.append(poster)
+            }
+        }
+
+        return posterUrlString
+    }
+
+    private func getMovieCells(_ data: [MovieTopRatedResult]) -> [CellMovieType] {
+        var cellMovieType: [CellMovieType] = [CellMovieType]()
+
+        data.forEach { movie in
+            if let bac = movie.backdropPath {
+                let imageUrlString: String = Endpoint.img(idImage: bac, sizeImage: .w500).urlString
+                cellMovieType.append(CellMovieType(imageUrlString: imageUrlString, title: movie.title ?? ""))
+            }
+        }
+
+        return cellMovieType
+    }
+
     @objc private func aumentMovieShow(_ notification: Notification) {
         totalMoviesShow += LocalizedConstants.commonIncrementNumber
     }
@@ -118,54 +167,32 @@ final class HomeView: UIViewController {
 extension HomeView: HomeViewProtocol {
     func updateView(data: [UpcomingModelResult]) {
         upcomingMovies = data
-        var posterUrlString: [String] = []
-        data.forEach { movie in
-            if let poster = movie.posterPath {
-                posterUrlString.append(poster)
-            }
-        }
 
-        upcomingMoviesSlider.setUp(imageUrlArray: posterUrlString, imageContentMode: .scaleAspectFit)
+        upcomingMoviesSlider.setUp(imageUrlArray: getPosterPathList(data),
+                                   imageContentMode: .scaleAspectFit)
         upcomingMoviesSlider.delegate = self
     }
 
     func updateView(data: [PopularMoviesModelResult]) {
         popularMovies = data
-        var posterUrlString: [String] = []
-        data.forEach { movie in
-            if let poster = movie.posterPath {
-                posterUrlString.append(poster)
-            }
-        }
 
-        popularImageSlider.setUp(imageUrlArray: posterUrlString, imageContentMode: .scaleAspectFit)
+        popularImageSlider.setUp(imageUrlArray: getPosterPathList(data),
+                                 imageContentMode: .scaleAspectFit)
         popularImageSlider.delegate = self
     }
 
     func updateView(data: [NowPlayingResult]) {
         nowPlaying = data
-        var posterUrlString: [String] = []
-        data.forEach { movie in
-            if let poster = movie.posterPath {
-                posterUrlString.append(poster)
-            }
-        }
 
-        nowPlayingSlider.setUp(imageUrlArray: posterUrlString, imageContentMode: .scaleAspectFit)
+        nowPlayingSlider.setUp(imageUrlArray: getPosterPathList(data),
+                               imageContentMode: .scaleAspectFit)
         nowPlayingSlider.delegate = self
     }
 
     func updateView(data: [MovieTopRatedResult]) {
         movieTopRated = data
-        var cellMovieType = [CellMovieType]()
-        data.forEach { movie in
-            if let bac = movie.backdropPath {
-                let imageUrlString: String = Endpoint.img(idImage: bac, sizeImage: .w500).urlString
-                cellMovieType.append(CellMovieType(imageUrlString: imageUrlString, title: movie.title ?? ""))
-            }
-        }
 
-        movieTopSlider.setUp(cellMovieType)
+        movieTopSlider.setUp(getMovieCells(data))
         movieTopSlider.delegate = self
     }
 
